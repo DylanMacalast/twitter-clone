@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Tweet;
 
 class User extends Authenticatable
 {
@@ -40,4 +41,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Gets Users Avatar att
+     */
+    public function getAvatarAttribute()
+    {
+        return 'https://i.pravatar.cc/50?u='.$this->email;
+    }
+
+    /**
+     * gets tweets specific to user
+     */
+    public function timeline()
+    {
+
+        return Tweet::where('user_id',$this->id)->latest()->get();
+    }
 }
