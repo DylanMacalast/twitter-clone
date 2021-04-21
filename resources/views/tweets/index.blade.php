@@ -15,8 +15,10 @@
         </div>
         
     </div>
-    <div class="lg:w-1/6 bg-blue-100 rounded p-4">
-        @include('_sidebar-friends')
+    <div class="lg:w-1/6">
+        <div class="bg-blue-100 rounded p-4">
+            @include('_sidebar-friends')
+        </div>
     </div>
 </div>
 @endsection

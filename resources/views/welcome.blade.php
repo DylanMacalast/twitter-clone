@@ -32,7 +32,7 @@
                     <div class="text-md text-gray-900">
                         {{-- auth checks to show different links --}}
                         @auth
-                        <a href="/home" class="underline">
+                        <a href="{{route('home')}}" class="underline">
                             HOME
                         </a>
                         @else
